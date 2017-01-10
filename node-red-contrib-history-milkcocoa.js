@@ -8,7 +8,7 @@ module.exports = function(RED) {
         this.on('input', function(msg) {
             
             var MilkCocoa = require('milkcocoa');
-            var milkcocoa = new MilkCocoa(msg.mlkcca.app_id+'.mlkcca.com');
+            var milkcocoa = MilkCocoa.connectWithApiKey(msg.mlkcca.app_id+'.mlkcca.com', msg.mlkcca.api_key, msg.mlkcca.api_secret);
             var ds = milkcocoa.dataStore(msg.mlkcca.data_store);
             var history = ds.history();
             history.sort(msg.mlkcca.sort);
