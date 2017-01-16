@@ -30,8 +30,8 @@ module.exports = function(RED) {
             	span_end = msg.mlkcca.span_end;
         	}
             
-            var tsStart = new Date(Date.parse(msg.span_start, 'YYYY-MM-DD hh:mm:ss')).toTime();
-            var tsEnd = new Date(Date.parse(msg.span_end, 'YYYY-MM-DD hh:mm:ss')).toTime();
+            var tsStart = new Date(Date.parse(msg.span_start, 'YYYY-MM-DD hh:mm:ss')).getTime();
+            var tsEnd = new Date(Date.parse(msg.span_end, 'YYYY-MM-DD hh:mm:ss')).getTime();
             
             var MilkCocoa = require('milkcocoa');
             var milkcocoa = MilkCocoa.connectWithApiKey(msg.mlkcca.app_id+'.mlkcca.com', msg.mlkcca.api_key, msg.mlkcca.api_secret);
