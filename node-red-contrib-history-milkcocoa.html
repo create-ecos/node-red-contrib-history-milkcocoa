@@ -8,9 +8,8 @@
 			api_key: { value: "", required: false },
 			api_secret: { value: "", required: false },
 			data_store: { value: "", required: false },
-			size: { value: "", required: false },
-			sort: { value: "", required: false },
-			limit: { value: "", required: false }
+			span_start: { value: "", required: false },
+			span_end: { value: "", required: false },
 		},
         inputs:1,
         outputs:1,
@@ -39,33 +38,25 @@
 		<input type="text" id="node-input-api_secret" placeholder="API Secret">
 	</div>
 	<div class="form-row">
-		<label for="node-input-size"><i class="fa fa-building"></i> Size</label>
-		<input type="text" id="node-input-size" placeholder="Size">
+		<label for="node-span_start"><i class="fa fa-building"></i> Size</label>
+		<input type="text" id="node-span_start" placeholder="Span[start]">
 	</div>
 	<div class="form-row">
-		<label for="node-input-limit"><i class="fa fa-building"></i> Limit</label>
-		<input type="text" id="node-input-limit" placeholder="Limit">
-	</div>
-	<div class="form-row">
-		<label for="node-input-sort"><i class="fa fa-building"></i> Sort</label>
-		<select type="text" id="node-input-sort" placeholder="Sort">
-        	<option value="ASC">asc</option>
-        	<option value="DESC">desc</option>
-		</select>
+		<label for="node-span_end"><i class="fa fa-building"></i> Size</label>
+		<input type="text" id="node-span_end" placeholder="Span[end]">
 	</div>
 </script>
 
 <script type="text/x-red" data-help-name="node-red-contrib-history-milkcocoa">
-    <p>Milkcocoaのデータストアからhistory()するノードです。現状、APIキーによる認証のみ対応しています。</p>
+    <p>Milkcocoaのデータストアから範囲を指定してhistory()するノードです。現状、APIキーによる認証のみ対応しています。</p>
     <p>パラメータは次の通りです。</p>
     <ul>
     	<li><code>app_id</code> : applicationID(xxxxxx.mlkcca.com)</li>
     	<li><code>api_key</code> : api key</li>
     	<li><code>api_secret</code> : api secret</li>
-    	<li><code>data_store</code> : data store name</li>
-    	<li><code>size</code> : fetch size(option)</li>
-    	<li><code>limit</code> : fetch limit(option)</li>
-    	<li><code>sort</code> : asc|desc(option)</li>
+    	<li><code>data_store</code> : データストア名</li>
+    	<li><code>span_start</code> : 開始時間</li>
+    	<li><code>span_end</code> : 終了時間</li>
     </ul>
     <p>パラメータはmsg.mlkccaで同様に定義することができ、画面の設定よりも優先されます。</p>
     <p>例 : <code>msg.mlkcca = {app_id:'xxx', api_key:'yyy', api_secret:'zzz', data_store:'www'}</code></p>
