@@ -31,7 +31,7 @@ module.exports = function(RED) {
         	}
             
             var tsStart = new Date(Date.parse(msg.span_start, 'YYYY-MM-DD hh:mm:ss')).toTime();
-            var tsEnd = new Date(Date.parse(, 'YYYY-MM-DD hh:mm:ss')).toTime();
+            var tsEnd = new Date(Date.parse(msg.span_end, 'YYYY-MM-DD hh:mm:ss')).toTime();
             
             var MilkCocoa = require('milkcocoa');
             var milkcocoa = MilkCocoa.connectWithApiKey(msg.mlkcca.app_id+'.mlkcca.com', msg.mlkcca.api_key, msg.mlkcca.api_secret);
